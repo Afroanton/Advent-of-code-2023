@@ -17,7 +17,7 @@ def possible_game(cube_subsets):
                 return False
     return True
 
-def possible_game2(cube_subsets):
+def min_cubes(cube_subsets):
     min_color_cubes = {"RED": 0, "GREEN": 0, "BLUE": 0}
     for cube_subset in cube_subsets:
         color_set = cube_subset.split(",")
@@ -60,7 +60,7 @@ def part2():
     power_sum = 0
     games = parse_games()
     for game in games:
-        min_color_cubes = possible_game2(game['cube_subsets'])
+        min_color_cubes = min_cubes(game['cube_subsets'])
         power = cube_power(min_color_cubes)
         power_sum += power
     return power_sum
